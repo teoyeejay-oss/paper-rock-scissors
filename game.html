@@ -8,6 +8,78 @@
 <body>
     <script>
         console.log("Hello world")
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice(){
+           Random_number =  Math.floor(Math.random() * 3);
+           if (Random_number == 0){
+            Computerchoice = "rock";
+            return Computerchoice;
+           }
+           else if (Random_number == 1){
+            Computerchoice = "paper";
+            return Computerchoice;
+           }
+           else{
+            Computerchoice = "scissors";
+            return Computerchoice;
+           }
+
+        }
+
+        function getHumanChoice(){
+            let Humanchoice = prompt("What your choice? (rock/scissors/paper)");
+            return Humanchoice;
+        }
+
+      function playRound(humanChoice, computerChoice) {
+        if (humanChoice=="rock" || computerChoice=="paper"){
+        console.log("You lose! Paper beat rock.")
+        computerScore += 1;
+        }
+        else if (humanChoice =="rock" || computerChoice=="scissors"){
+            console.log("You win! Rock beat scissors.")
+            humanScore += 1;
+        }
+        else if (humanChoice == computerChoice){
+            console.log("Same! Draw.");
+        }
+        else if ( humanChoice == "paper" || computerChoice=="rock"){
+            console.log("You win! Paper beat rock.");
+            humanScore += 1;
+        }
+        else if (humanChoice == "paper" || computerChoice=="scissors"){
+            console.log("You lose! Scissors beat paper.");
+            computerScore += 1;
+        }
+        else if (humanChoice =="scissors" || computerChoice=="paper"){
+            console.log("Your win! Scissors beat paper.");
+            humanScore += 1;
+        }
+        else if (humanChoice=="scissors" || computerChoice=="rock"){
+            console.log("You lose! Rock beat scissors.");
+            computerScore += 1;
+        }
+      }
+
+
+
+function playGame(){
+    for(let i=0; i<=4; i++){
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    }
+
+    console.log("Your score is:");
+    console.log(humanScore);
+    console.log("Computer score is:");
+    console.log(computerScore);
+
+}
+      
+playGame();
     </script>
 </body>
 </html>
